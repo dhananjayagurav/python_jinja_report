@@ -1,0 +1,56 @@
+<html>
+<head>
+	<style>
+	table,th,td {
+		border: 1px solid black;
+		background-color: #e5e5ff
+	}
+	table {
+		width: 100%;
+	}
+	td {
+		text-align: right;
+		padding: 5px;
+	}
+	caption {
+		display: table-caption;
+		text-align: center;
+		background-color: #9988FF;
+	}
+	tr:nth-child(even){background-color: #f2f2f2}
+	th {
+		background-color: #9988FF;
+		color: black;
+		text-align: center;
+		padding: 5px;
+	}
+	</style>
+
+</head>
+
+<body>
+	<br>
+	<table>
+		<caption>
+		  {% set report_name = report_nm[report] %}	
+		 <b>{{ report_name }}</b>
+		</caption>
+		  <tr>
+			<th>col1</th>
+			<th>col2</th>		
+			<th>col3</th>
+			<th>Report Date</th>
+		  </tr>
+		  {% set j = 0 %}	
+		  {% for row in results %}
+			<tr>
+			{% for j in range(4) %}
+				<td>{{ row[j] }}</td>
+				{% set j = (j + 1) %}
+			{% endfor %}
+			</tr>
+		  {% endfor %} 		
+		<br>
+	</table>
+</body>
+</html>
